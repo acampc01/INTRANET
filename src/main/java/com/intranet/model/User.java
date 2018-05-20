@@ -1,3 +1,4 @@
+
 package com.intranet.model;
 
 import java.util.Set;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -28,22 +30,22 @@ public class User {
 	private int id;
 	
 	@Column(name = "email")
-	@Email(message = "*Please provide a valid Email")
-	@NotEmpty(message = "*Please provide an email")
+	@Email
+	@NotEmpty
 	private String email;
 	
 	@Column(name = "password")
-	@Length(min = 5, message = "*Your password must have at least 5 characters")
-	@NotEmpty(message = "*Please provide your password")
+	@Length(min = 5)
+	@NotEmpty
 	@Transient
 	private String password;
 	
 	@Column(name = "name")
-	@NotEmpty(message = "*Please provide your name")
+	@NotEmpty
 	private String name;
 	
 	@Column(name = "last_name")
-	@NotEmpty(message = "*Please provide your last name")
+	@NotEmpty
 	private String lastName;
 	
 	@Column(name = "active")
@@ -52,6 +54,14 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_file", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "file_id"))
+	private Set<File> files;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_folder", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "folder_id"))
+	private Set<File> folder;
 
 	public int getId() {
 		return id;

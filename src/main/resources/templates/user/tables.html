@@ -30,10 +30,10 @@
 	<div class="content-wrapper">
 		<div class="container-fluid">
 			<!-- Breadcrumbs-->
-			<ol class="breadcrumb">
+			<!-- <ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="#">Dashboard</a></li>
 				<li class="breadcrumb-item active">Tables</li>
-			</ol>
+			</ol> -->
 			<!-- Example DataTables Card-->
 			<div class="card mb-3">
 				<div class="card-header">
@@ -524,8 +524,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="card-footer small text-muted">Updated yesterday at
-					11:59 PM</div>
+				<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 			</div>
 		</div>
 	</div>
@@ -545,6 +544,15 @@
 	<script th:src="@{/js/sb-admin.min.js}"></script>
 	<!-- Custom scripts for this page-->
 	<script th:src="@{/js/sb-admin-datatables.min.js}"></script>
+	
+	<!-- Toggle between dark and light navbar-->
+	<script>
+	$('#toggleNavColor').click(function() {
+		$('nav').toggleClass('navbar-dark navbar-light');
+	    $('nav').toggleClass('bg-dark bg-light');
+	    $('body').toggleClass('bg-dark bg-light');
+	});
+	</script>
 </body>
 
 </html>

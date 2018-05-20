@@ -15,6 +15,7 @@
   <link th:href="@{/css/sb-admin.css}" rel="stylesheet">
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+
   <!-- Navigation-->
   <div th:fragment="navbar">
 	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -30,51 +31,35 @@
 	            <span class="nav-link-text">Dashboard</span>
 	          </a>
 	        </li> -->
-	        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+			<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Files">
 	          <a class="nav-link" href="tables.html">
-	            <i class="fa fa-fw fa-table"></i>
-	            <span class="nav-link-text">Shared With Me</span>
+	            <i class="fa fa-fw fa-folder"></i>
+	            <span class="nav-link-text">My Files</span>
 	          </a>
 	        </li>
-	
 	        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
 	          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
 	            <i class="fa fa-fw fa-sitemap"></i>
-	            <span class="nav-link-text">My Files</span>
+	            <span class="nav-link-text">My Folders</span>
 	          </a>
 	          <ul class="sidenav-second-level collapse" id="collapseMulti">
 	            <li>
-	              <a href="#">Carpeta 1</a>
+	              <a href="#">Carpeta Ejemplo 1</a>
 	            </li>
 	            <li>
-	              <a href="#">Carpeta 2</a>
+	              <a href="#">Carpeta Ejemplo 2</a>
 	            </li>
 	            <li>
-	              <a href="#">Carpeta 3</a>
-	            </li>
-	            <li>
-	              <a href="#">Carpeta 4</a>
-	            </li>
-	            <li>
-	              <a href="#">Carpeta 5</a>
-	            </li>
-	            <li>
-	              <a href="#">Carpeta 6</a>
-	            </li>
-	            <li>
-	              <a href="#">Carpeta 7</a>
-	            </li>
-	            <li>
-	              <a href="#">Carpeta 8</a>
-	            </li>
-	            <li>
-	              <a href="#">Carpeta 9</a>
-	            </li>
-	            <li>
-	              <a href="#">Carpeta 10</a>
+	              <a href="#">Carpeta Ejemplo 3</a>
 	            </li>
 	          </ul>
 	        </li>
+	        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+	         <a class="nav-link" href="tables.html">
+	           <i class="fa fa-fw fa-share-alt"></i>
+	           <span class="nav-link-text">Shared With Me</span>
+	         </a>
+	       	</li>
 	      </ul>
 	      <ul class="navbar-nav sidenav-toggler">
 	        <li class="nav-item">
@@ -85,11 +70,11 @@
 	      </ul>
 	      <!-- TOP NAVBAR -->
 	      <ul class="navbar-nav ml-auto">
-	        <li class="nav-item dropdown">
+	        <!-- <li class="nav-item dropdown">
 	          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	            <i class="fa fa-fw fa-envelope"></i>
 	            <span class="d-lg-none">Messages
-	              <span class="badge badge-pill badge-primary">12 New</span>
+	               <span class="badge badge-pill badge-primary">12 New</span>
 	            </span>
 	          </a>
 	          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
@@ -113,20 +98,26 @@
 	            <div class="dropdown-divider"></div>
 	            <a class="dropdown-item small" href="#">View all messages</a>
 	          </div>
+	        </li> -->
+	        <li class="nav-item">
+	          <a class="nav-link" id="toggleNavColor">
+	            <i class="fa fa-fw fa fa-adjust"></i>Toggle
+	          </a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link">
+	          <a class="nav-link" th:href="@{/user/upload}">
 	            <i class="fa fa-fw fa fa-cloud-upload"></i>Upload
 	          </a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+	          <a class="nav-link" data-toggle="modal" data-target="#logoutModal">
 	            <i class="fa fa-fw fa-sign-out"></i>Logout
 	          </a>
 	        </li>
 	      </ul>
 	    </nav>
-	</div>
+	  </div>
+	   
     <!-- Bootstrap core JavaScript-->
     <script th:src="@{/libs/jquery/jquery.min.js}"></script>
     <script th:src="@{/libs/bootstrap/js/bootstrap.bundle.min.js}"></script>
@@ -134,22 +125,6 @@
     <script th:src="@{/libs/jquery-easing/jquery.easing.min.js}"></script>
     <!-- Custom scripts for all pages-->
     <script th:src="@{/js/sb-admin.min.js}"></script>
-    <!-- Custom scripts for this page-->
-    <!-- Toggle between fixed and static navbar-->
-    <script>
-    $('#toggleNavPosition').click(function() {
-      $('body').toggleClass('fixed-nav');
-      $('nav').toggleClass('fixed-top static-top');
-    });
-    </script>
-    <!-- Toggle between dark and light navbar-->
-    <script>
-    $('#toggleNavColor').click(function() {
-      $('nav').toggleClass('navbar-dark navbar-light');
-      $('nav').toggleClass('bg-dark bg-light');
-      $('body').toggleClass('bg-dark bg-light');
-    });
-    </script>
 
     <!-- <span class="indicator text-primary d-none d-lg-block">
     <i class="fa fa-fw fa-circle"></i>
